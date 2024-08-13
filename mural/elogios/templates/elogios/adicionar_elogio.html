@@ -1,0 +1,17 @@
+{% extends 'elogios/base.html' %}
+
+{% block content %}
+<h1 class="text-center">Adicionar Elogio</h1>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Salvar</button>
+        </form>
+        <a href="{% url 'lista_elogios' %}" class="btn btn-link btn-block">Voltar</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'elogios/base.html' %}
+
+{% block content %}
+<h1 class="text-center">Mural de Elogios</h1>
+<div class="row" style="padding-top: 50px;">
+    {% for elogio in elogios %}
+    <div class="col-md-4 mb-3">
+        <div class="post-it p-3 bg-light border rounded shadow-sm">
+            <h4 class="text-center">{{ elogio.autor }}</h4>
+            <p><strong>Para:</strong> {{ elogio.destinatario }}</p>
+            <p>{{ elogio.mensagem }}</p>
+            <p class="text-right"><em>{{ elogio.data_criacao|date:"d/m/Y H:i" }}</em></p>
+            <div class="text-right">
+                <a href="{% url 'excluir_elogio' elogio.id %}" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash"></i> Excluir
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
